@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Weather Microservice API
+  version: 1.0.0
+paths:
+  /api/temperature-history:
+    get:
+      summary: Get temperature history for a specific day
+      parameters:
+        - name: day
+          in: query
+          required: true
+          description: Date in Y-m-d format
+          schema:
+            type: string
+        - name: x-token
+          in: header
+          required: true
+          description: Authentication token
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of temperature records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    city:
+                      type: string
+                    temperature:
+                      type: number
+                      format: float
+        '400':
+          description: Invalid date format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '404':
+          description: No data found for this date
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
