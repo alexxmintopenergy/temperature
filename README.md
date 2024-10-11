@@ -31,9 +31,9 @@ This microservice periodically fetches and stores temperature data for a specifi
 
     ** Never insert API keys and other creds to GIT! :-) **
     ```
-    WEATHER_API_KEY=1754ac1a38bf062eb9ad47ff1aa96ac1
-    WEATHER_CITY=Kyiv 
-    X_TOKEN=sqF3HdZISaG91XFwXSrHsB1zVygYD7MD 
+    WEATHER_API_KEY=
+    WEATHER_CITY=
+    X_TOKEN= 
     ```
 
     -   To generate a new secure token, run:
